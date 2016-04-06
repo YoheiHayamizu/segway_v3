@@ -63,10 +63,21 @@ class IoEthThread:
         Initialize the UDP connection
         """
         try:
+            """
+            Check if local address has been specified to connect to the Segway, use ROS_IP instead.
+            SEGWAY_INTERFACE_ADDRESS can be set (platform dependent) using something similar to:
+            export SEGWAY_INTERFACE_ADDRESS=`ip route get $SEGWAY_IP_ADDRESS | awk 'NR==1 {print $NF}'`
+
+            """
+            try:
+                self.local_address = os.environ['SEGWAY_INTERFACE_ADDRESS']
+            except:
+                self.local_address = os.environ['ROS_IP']
+
             self.conn = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             self.conn.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
             self.conn.setblocking(0)
-            self.conn.bind((os.environ['ROS_IP'],self.remote_address[1]))
+            self.conn.bind((self.local_address,self.remote_address[1]))
             self.conn.connect(self.remote_address)
         except:
             try:
