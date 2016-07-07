@@ -24,6 +24,7 @@
     <run_depend>segway_ros</run_depend>	
     <run_depend>segway_assisted_teleop</run_depend>
     <run_depend>map_server</run_depend>
+    <run_depend>costmap_2d</run_depend>
     
 	<export>
 	</export>
