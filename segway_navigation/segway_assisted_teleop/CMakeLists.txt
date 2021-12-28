@@ -16,7 +16,8 @@ set(THIS_PACKAGE_ROS_DEPS
   roscpp
   roslib
   sensor_msgs
-  tf
+  tf2
+  tf2_ros
 )
 
 find_package(catkin REQUIRED COMPONENTS ${THIS_PACKAGE_ROS_DEPS})

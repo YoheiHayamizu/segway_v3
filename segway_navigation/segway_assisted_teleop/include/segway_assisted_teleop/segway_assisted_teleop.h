@@ -37,6 +37,7 @@
 #ifndef SEGWAY_ASSISTED_TELEOP_ASSISTED_TELEOP_H_
 #define SEGWAY_ASSISTED_TELEOP_ASSISTED_TELEOP_H_
 #include <ros/ros.h>
+#include <tf2_ros/buffer.h>
 #include <geometry_msgs/Twist.h>
 #include <costmap_2d/costmap_2d_ros.h>
 #include <base_local_planner/trajectory_planner_ros.h>
@@ -53,7 +54,7 @@ namespace assisted_teleop {
       void velCB(const geometry_msgs::TwistConstPtr& vel);
       void controlLoop();
 
-      tf::TransformListener tf_;
+      tf2_ros::Buffer tf_;
       costmap_2d::Costmap2DROS costmap_ros_;
       double controller_frequency_;
       base_local_planner::TrajectoryPlannerROS planner_;

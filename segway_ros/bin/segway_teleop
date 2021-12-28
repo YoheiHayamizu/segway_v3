@@ -52,7 +52,6 @@ arising out of or based upon:
 --------------------------------------------------------------------"""
 from segway.segway_teleop import SegwayTeleop
 import rospy
-import roslaunch
 
 if __name__ == "__main__":
     """
