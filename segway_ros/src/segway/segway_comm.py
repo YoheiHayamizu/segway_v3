@@ -324,7 +324,7 @@ class SegwayDriver:
         """
         Add the command to the queue, platform does command limiting and mapping
         """
-        cmds = [MOTION_CMD_ID,[convert_float_to_u32(command.linear.x),
+        cmds = [MOTION_CMD_ID,[convert_float_to_u32(-command.linear.x),
                                convert_float_to_u32(command.linear.y),
                                convert_float_to_u32(command.angular.z)]]
         self._add_command_to_queue(cmds)
